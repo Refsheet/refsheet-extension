@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
+import Toolbar from "./Toolbar";
+import Content from "./content";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className='toolbar'>
-          <button onClick={e => window.location.reload()}>Reload</button>
+        <Toolbar />
 
-          <div className='right'>
-            <input type='search' placeholder='Search...' />
-          </div>
-        </div>
+        <Content relax>
+          <img
+            src="https://assets.refsheet.net/assets/logos/RefsheetLogo_White_200.png"
+            className="logo"
+            alt="Refsheet.net"
+            width={100}
+            height={100}
+          />
 
-        <div className='content'>
-          <p>This is the test of the Refsheet Artist Extension.</p>
-        </div>
+          <h1>What do?</h1>
+        </Content>
       </div>
     );
   }

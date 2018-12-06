@@ -2,6 +2,10 @@
   background-color: $ps-toolbar-color
   padding: 0.25rem 0.25rem
   border-bottom: 1px solid $ps-border-color
+  line-height: 1rem
+  position: relative
+  flex-shrink: 0
+  flex-grow: 0
 
   a, input, select, button
     display: inline-block
@@ -10,7 +14,6 @@
     border-radius: 3px
     transition: all 0.1s ease
     cursor: pointer
-    margin-right: 0.25rem
 
     &:hover, &:focus, &:active
       border-color: $ps-border-light
@@ -19,16 +22,41 @@
   input
     background-color: $ps-background-color
     border-color: $ps-border-light
-    color: inherit
 
-    &:focus
-      box-shadow: none
-      outline-color: $accent-color
-      border-color: $accent-color
+  .input-container
+    position: relative
+    vertical-align: middle
+
+    &.with-icon
+      input
+        padding-left: 1.5rem
+        width: 100px
+
+        &:focus
+          width: 150px
+
+          & + label
+            color: $accent-color
+
+    label
+      position: absolute
+      left: 0
+      top: 1px
+      bottom: 0
+      display: block
+      padding: 0.25rem
+
+      i.material-icons
+        font-size: 1rem
+        height: auto
+        line-height: inherit
+        display: block
+        vertical-align: middle
 
   .right
-    float: right
-
-    a, input, select, button
-      margin-right: 0
-      margin-left: 0.25rem
+    position: absolute
+    right: 0.25rem
+    top: 0.25rem
+    bottom: 0.25rem
+    background-color: inherit
+    padding-left: 0.25rem

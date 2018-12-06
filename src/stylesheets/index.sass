@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
 @import 'variables'
+
+@import "toolbar"
+@import "content"
+@import "input"
+@import "typography"
 
 *
   box-sizing: border-box
@@ -6,7 +13,7 @@
 body
   margin: 0
   padding: 0
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   background-color: $ps-background-color
@@ -15,15 +22,7 @@ body
   html, &
     font-size: 11px
 
-code
- font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
-
-a
-  color: $ps-link-color
-  text-decoration: none
-
-input, select, textarea
-  font: inherit
-
-@import "toolbar"
-@import "content"
+.App
+  min-height: 100vh
+  display: flex
+  flex-direction: column
