@@ -1,0 +1,33 @@
+.toolbar
+  background-color: $ps-toolbar-color
+  padding: 0.25rem 0.25rem
+  border-bottom: 1px solid $ps-border-color
+
+  a, input, select
+    display: inline-block
+    padding: 0.25rem 0.35rem
+    border: 1px solid transparent
+    border-radius: 3px
+    transition: all 0.1s ease
+    cursor: pointer
+    margin-right: 0.25rem
+
+    .right &
+      margin-left: 0.25rem
+      margin-right: 0
+
+    &:hover, &:focus, &:active
+      border-color: $ps-border-light
+      background-color: $ps-background-dark
+
+  input
+    background-color: $ps-background-color
+    border-color: $ps-border-light
+
+    &:focus
+      box-shadow: none
+      outline-color: $accent-color
+      border-color: $accent-color
+
+  .right
+    float: right
