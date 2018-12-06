@@ -3,7 +3,7 @@
   padding: 0.25rem 0.25rem
   border-bottom: 1px solid $ps-border-color
 
-  a, input, select
+  a, input, select, button
     display: inline-block
     padding: 0.25rem 0.35rem
     border: 1px solid transparent
@@ -12,10 +12,6 @@
     cursor: pointer
     margin-right: 0.25rem
 
-    .right &
-      margin-left: 0.25rem
-      margin-right: 0
-
     &:hover, &:focus, &:active
       border-color: $ps-border-light
       background-color: $ps-background-dark
@@ -23,6 +19,7 @@
   input
     background-color: $ps-background-color
     border-color: $ps-border-light
+    color: inherit
 
     &:focus
       box-shadow: none
@@ -31,3 +28,7 @@
 
   .right
     float: right
+
+    a, input, select, button
+      margin-right: 0
+      margin-left: 0.25rem

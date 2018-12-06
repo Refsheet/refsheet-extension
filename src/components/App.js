@@ -5,7 +5,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className='toolbar'>
-          <a href='#' onClick={e => window.location.reload()}>Reload</a>
+          <button onClick={e => window.location.reload()}>Reload</button>
 
           <div className='right'>
             <input type='search' placeholder='Search...' />
