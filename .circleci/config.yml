@@ -65,9 +65,6 @@ jobs:
     docker:
       - image: arbornetworks-docker-public-docker.bintray.io/circleci-node-aws:8.4.0
     steps:
-      - run:
-          name: Install awscli
-          command: sudo pip install awscli
       - attach_workspace:
           at: ~/repo
       - run: npm run deploy
