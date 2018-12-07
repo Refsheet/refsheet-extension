@@ -1,11 +1,13 @@
 import React from 'react'
-import Button from "./Button";
+import Button from "./Button"
+import { Link } from 'react-router-dom'
 
 const Toolbar = ({}) => {
   return(
     <div className='toolbar'>
-      <Button onClick={e => window.location.reload()}>home</Button>
+      <Link to='/'><i className='material-icons'>home</i></Link>
       <Button onClick={e => window.location.reload()}>refresh</Button>
+      <Link to='/mauabata/alice'>Akhet</Link>
 
       <div className='right'>
         <div className='input-container with-icon'>

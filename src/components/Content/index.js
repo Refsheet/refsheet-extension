@@ -1,9 +1,9 @@
 import React from 'react'
 import c from 'classnames'
 
-const Content = ({children, relax}) => {
+const Content = ({children, relax, className}) => {
   return (
-    <div className={c('content', {relax})}>
+    <div className={c('content', className, {relax})}>
       {children}
     </div>
   )

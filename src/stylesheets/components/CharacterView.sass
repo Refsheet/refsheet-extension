@@ -1,0 +1,74 @@
+.character-view
+  display: flex
+  flex-direction: column
+
+  .header
+    display: flex
+    height: 100px
+    flex-shrink: 0
+    background-color: $ps-background-dark
+
+    .summary
+      flex-grow: 1
+      padding: 0.5rem
+
+      h1
+        margin: 0 0 5px 0
+        padding: 0
+        font-size: 1.1rem
+        line-height: 25px
+        height: 25px
+        vertical-align: text-top
+
+      .attributes
+        height: 40px
+        line-height: 18px
+
+        .attribute
+          height: 18px
+
+        .attr-name
+          color: $ps-text-dark
+          font-size: 0.6rem
+          text-transform: uppercase
+
+      .tabs
+        margin: 0 0 -5px -0.5rem
+        height: 25px
+
+        .tab
+          padding: 0 0.5rem
+          display: inline-block
+          border-bottom: 1px solid transparent
+          font-size: 0.6rem
+          text-transform: uppercase
+          line-height: 21px
+
+          &.active
+            border-bottom-color: $accent-color
+            color: $accent-color
+
+    .profile-image
+      flex-shrink: 0
+      position: relative
+      overflow: hidden
+      display: block
+
+      img
+        image-rendering: -moz-crisp-edges          /* Firefox */
+        image-rendering:   -o-crisp-edges          /* Opera */
+        image-rendering: -webkit-optimize-contrast /* Webkit (non-standard naming) */
+        image-rendering: crisp-edges
+        -ms-interpolation-mode: nearest-neighbor   /* IE (non-standard property) */
+
+      &:before
+        content: ''
+        display: block
+        width: 2rem
+        background-color: $ps-background-dark
+        position: absolute
+        right: 100%
+        top: 0
+        height: 200%
+        transform: rotate(-5deg)
+        transform-origin: top right

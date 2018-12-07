@@ -1,27 +1,20 @@
-import React, { Component } from 'react';
-import Toolbar from "./Toolbar";
-import Content from "./content";
+import React from 'react';
+import Main from "./Main";
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router'
+import { ApolloProvider } from 'react-apollo'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Toolbar />
+import store, { history } from '../utils/configureStore'
+import client from '../utils/configureApollo'
 
-        <Content relax>
-          <img
-            src="https://assets.refsheet.net/assets/logos/RefsheetLogo_White_200.png"
-            className="logo"
-            alt="Refsheet.net"
-            width={100}
-            height={100}
-          />
-
-          <h1>What do?</h1>
-        </Content>
-      </div>
-    );
-  }
-}
+const App = (props) => (
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <ApolloProvider client={client}>
+        <Main {...props} />
+      </ApolloProvider>
+    </ConnectedRouter>
+  </Provider>
+);
 
 export default App;
