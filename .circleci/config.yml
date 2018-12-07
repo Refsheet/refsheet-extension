@@ -63,6 +63,9 @@ jobs:
   deploy:
     <<: *defaults
     steps:
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
       - attach_workspace:
           at: ~/repo
       - run: npm run deploy
