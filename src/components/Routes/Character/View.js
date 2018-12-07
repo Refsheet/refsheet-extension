@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {Route, Switch} from "react-router";
 import Error from "../../shared/Error";
 import About from "./About";
@@ -7,8 +7,6 @@ import Swatches from "./Swatches";
 
 const View = ({character, match}) => {
   const {
-    username,
-    slug,
     name,
     profile_image: {
       url: {

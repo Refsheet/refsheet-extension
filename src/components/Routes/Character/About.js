@@ -1,4 +1,3 @@
-import ColorSwatch from "../../shared/ColorSwatch";
 import Content from "../../Content";
 import React from "react";
 
