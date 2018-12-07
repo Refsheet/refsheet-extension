@@ -7,7 +7,7 @@ const Toolbar = ({}) => {
     <div className='toolbar'>
       <Link to='/'><i className='material-icons'>home</i></Link>
       <Button onClick={e => window.location.reload()}>refresh</Button>
-      <Link to='/mauabata/alice'>Akhet</Link>
+      <Link to='/mauabata/akhet'>Akhet</Link>
 
       <div className='right'>
         <div className='input-container with-icon'>

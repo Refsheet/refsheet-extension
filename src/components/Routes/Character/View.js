@@ -30,7 +30,7 @@ const View = ({character, match}) => {
           <h1>{ name }</h1>
           <div className={'attributes'}>
             <div className={'attribute'}><span className="attr-name">By:</span> @MauAbata</div>
-            <div className={'attribute'}><span className="attr-name">Species:</span> Lion</div>
+            <div className={'attribute'}><span className="attr-name">Species:</span> Caracal / Snow Leopard</div>
           </div>
           <div className='tabs'>
             <NavLink to={`${match.url}`} className='tab' activeClassName='active' exact>About</NavLink>
