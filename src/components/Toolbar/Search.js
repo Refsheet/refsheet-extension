@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {push} from "connected-react-router";
 import {setSearchQuery} from "../../actions";
 
-const Search = ({push, setSearchQuery, query}) => {
+const Search = ({push, setSearchQuery, query, style, inputStyle}) => {
   const handleSearch = (e) => {
     e.preventDefault();
     push('/search/' + encodeURIComponent(query));
@@ -15,8 +15,8 @@ const Search = ({push, setSearchQuery, query}) => {
   };
 
   return (
-    <form className='input-container with-icon' onSubmit={handleSearch}>
-      <input id='search' name='q' type='search' placeholder='Search...' onChange={handleChange} value={query} />
+    <form className='input-container with-icon' onSubmit={handleSearch} style={style}>
+      <input id='search' name='q' type='search' placeholder='Search...' onChange={handleChange} value={query} style={inputStyle} />
       <label htmlFor='search'>
         <i className='material-icons'>search</i>
       </label>

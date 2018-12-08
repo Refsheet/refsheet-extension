@@ -1,6 +1,7 @@
 import ColorSwatch from "../../shared/ColorSwatch";
 import Content from "../../Content";
 import React from "react";
+import Search from "../../Toolbar/Search";
 
 const Home = () => {
   return (
@@ -13,11 +14,10 @@ const Home = () => {
         height={100}
       />
 
-      <h1>What do?</h1>
+      <h1>Refsheet Artist</h1>
 
-      <div>
-        <ColorSwatch color={"#2bbaad"} />
-        <ColorSwatch color={"#1094cd"} />
+      <div className='toolbar' style={{backgroundColor: 'transparent', border: 'none'}}>
+        <Search inputStyle={{width: '100%'}} />
       </div>
     </Content>
   )

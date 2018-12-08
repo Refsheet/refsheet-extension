@@ -16,9 +16,16 @@
     cursor: pointer
     vertical-align: middle
 
-    &:hover, &:focus, &:active
-      border-color: $ps-border-light
-      background-color: $ps-background-dark
+    &:not(:disabled)
+      &:hover
+        border-color: $ps-border-light
+        background-color: $ps-background-dark
+
+    &:disabled
+      border-color: transparent !important
+      background-color: transparent !important
+      color: $ps-text-dark !important
+      cursor: not-allowed
 
     i.material-icons
       font-size: 1rem
@@ -26,6 +33,11 @@
       height: 1rem
       vertical-align: middle
       display: block
+
+  a, button
+    &:focus
+      outline: none
+      border-color: transparent
 
   input
     background-color: $ps-background-color
