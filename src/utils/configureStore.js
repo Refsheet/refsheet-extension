@@ -6,7 +6,9 @@ import createRootReducer from '../reducers'
 const history = createBrowserHistory();
 
 const initialState = {
-
+  search: {
+    query: ''
+  }
 };
 
 const store = createStore(

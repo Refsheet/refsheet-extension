@@ -4,10 +4,20 @@
 
   .header
     display: flex
-    height: 100px
     flex-shrink: 0
     background-color: $ps-background-dark
     border-bottom: 1px solid $ps-border-color
+
+    &:not(.short)
+      height: 100px
+
+    .right
+      float: right
+      text-align: right
+      color: $ps-text-dark
+      font-size: 0.6rem
+      line-height: 12.5px
+      vertical-align: middle
 
     .summary
       flex-grow: 1

@@ -1,0 +1,61 @@
+.character-card
+  display: block
+  border: 1px solid transparent
+  border-radius: 2px
+  margin: -0.25rem -0.25rem 0.5rem
+  padding: 0.5rem
+  background-color: $ps-background-dark
+  position: relative
+  overflow: hidden
+
+  &:hover
+    border-color: $ps-border-color
+    background-color: $ps-background-dark
+
+  .name
+    font-size: 0.9rem
+    margin-bottom: 4px
+    color: $ps-text-light
+
+  .user
+    color: $ps-text-dark
+
+  .shortcode
+    color: $ps-text-dark
+    margin-top: 4px
+    font-size: 0.6rem
+
+  .image
+    position: absolute
+    right: 0
+    top: 0
+    bottom: 0
+    width: 60px
+    overflow: hidden
+    background-color: #333
+    color: #333
+
+
+    img
+      border-top-right-radius: 2px
+      border-bottom-right-radius: 2px
+      height: 100%
+      width: 100%
+      object-fit: cover
+      image-rendering: -moz-crisp-edges          /* Firefox */
+      image-rendering:   -o-crisp-edges          /* Opera */
+      image-rendering: -webkit-optimize-contrast /* Webkit (non-standard naming) */
+      image-rendering: crisp-edges
+      -ms-interpolation-mode: nearest-neighbor   /* IE (non-standard property) */
+
+    &:before
+      content: ''
+      display: block
+      width: 2rem
+      background-color: $ps-background-dark
+      position: absolute
+      right: 100%
+      top: 0
+      height: 200%
+      transform: rotate(-5deg)
+      transform-origin: top right
