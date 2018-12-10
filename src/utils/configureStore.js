@@ -8,6 +8,10 @@ const history = createBrowserHistory();
 const initialState = {
   search: {
     query: ''
+  },
+  lightbox: {
+    open: false,
+    image: null
   }
 };
 

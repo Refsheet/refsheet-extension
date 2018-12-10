@@ -43,7 +43,7 @@ const View = ({character, match, setSearchQuery}) => {
           <div className='tabs'>
             <NavLink to={`${match.url}`} className='tab' activeClassName='active' exact>About</NavLink>
             <NavLink to={`${match.url}/swatches`} className='tab' activeClassName='active'>Swatches</NavLink>
-            <NavLink to={`${match.url}/refs`} className='tab' activeClassName='active'>Refs</NavLink>
+            <NavLink to={`${match.url}/refs`} className='tab' activeClassName='active'>Gallery</NavLink>
           </div>
         </div>
         <div className={'profile-image'}>

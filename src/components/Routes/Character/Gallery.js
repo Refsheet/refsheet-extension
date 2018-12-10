@@ -2,8 +2,10 @@ import React from "react";
 import Content from "../../Content";
 import ContainerDimensions from 'react-container-dimensions'
 import JustifiedLayout from 'react-justified-layout'
+import {openLightbox} from "../../../actions";
+import {connect} from "react-redux";
 
-const Gallery = ({character}) => {
+const Gallery = ({character, openLightbox}) => {
   const {
     images
   } = character;
@@ -12,18 +14,28 @@ const Gallery = ({character}) => {
     return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
   }
 
+  const handleClick = (image) => (e) => {
+    e.preventDefault();
+    openLightbox(image);
+  };
+
   const renderImage = (image) => (
-    <div className={'gallery-image'} key={image.id} style={{
-      width: image.size.small.width,
-      height: image.size.small.height
-    }}>
+    <a href={`/images/${image.id}`}
+       className={'gallery-image'}
+       onClick={handleClick(image)}
+       key={image.id}
+       style={{
+         width: image.size.small.width,
+         height: image.size.small.height
+       }}
+    >
       { image.nsfw
       ? <div className='nsfw'>
           <i className='material-icons'>remove_circle_outline</i>
           <div>Click to Show NSFW</div>
         </div>
       : <img src={image.url.small} alt={image.caption} /> }
-    </div>
+    </a>
   );
 
   // TODO - update to use fancy scrollbars and remove odd width.
@@ -46,4 +58,8 @@ const Gallery = ({character}) => {
   )
 };
 
-export default Gallery
+const mapDispatchToProps = {
+  openLightbox
+};
+
+export default connect(null, mapDispatchToProps)(Gallery)
