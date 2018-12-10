@@ -16,7 +16,7 @@ const Search = ({push, setSearchQuery, query, style, inputStyle}) => {
 
   return (
     <form className='input-container with-icon' onSubmit={handleSearch} style={style}>
-      <input id='search' name='q' type='search' placeholder='Search...' onChange={handleChange} value={query} style={inputStyle} />
+      <input id='search' name='q' type='search' placeholder='Search...' onChange={handleChange} value={query} style={inputStyle} onFocus={e => e.target.select()} />
       <label htmlFor='search'>
         <i className='material-icons'>search</i>
       </label>

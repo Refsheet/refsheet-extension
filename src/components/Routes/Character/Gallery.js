@@ -26,7 +26,8 @@ const Gallery = ({character, openLightbox}) => {
        key={image.id}
        style={{
          width: image.size.small.width,
-         height: image.size.small.height
+         height: image.size.small.height,
+         backgroundColor: image.background_color
        }}
     >
       { image.nsfw

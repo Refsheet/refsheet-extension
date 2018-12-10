@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 import Content from "../Content";
 
 const Lightbox = ({open, image, closeLightbox}) => {
-  console.log(open, image);
   if (!open) return null;
 
   return (
