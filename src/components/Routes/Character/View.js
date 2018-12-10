@@ -6,6 +6,7 @@ import About from "./About";
 import Swatches from "./Swatches";
 import {setSearchQuery} from "../../../actions";
 import {connect} from "react-redux";
+import Gallery from "./Gallery";
 
 const View = ({character, match, setSearchQuery}) => {
   const {
@@ -55,8 +56,12 @@ const View = ({character, match, setSearchQuery}) => {
           <About character={character} />
         } />
 
-        <Route path={`${match.path}/swatches`} exact render={() =>
+        <Route path={`${match.path}/swatches`} render={() =>
           <Swatches character={character} />
+        } />
+
+        <Route path={`${match.path}/refs`} render={() =>
+          <Gallery character={character} />
         } />
       </Switch>
     </div>

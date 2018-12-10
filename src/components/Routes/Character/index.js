@@ -44,6 +44,23 @@ const GET_CHARACTER = gql`
           medium
         }
       }
+      
+      images {
+        id
+        title
+        nsfw
+        hidden
+        background_color
+        aspect_ratio
+        url {
+          small
+          medium
+          large
+        }
+        size {
+          small { width height }
+        }
+      }
     }
   }
 `;

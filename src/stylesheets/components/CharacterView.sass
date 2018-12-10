@@ -6,7 +6,9 @@
     display: flex
     flex-shrink: 0
     background-color: $ps-background-dark
-    border-bottom: 1px solid $ps-border-color
+    box-shadow: $box-shadow-1
+    position: relative
+    z-index: $z-toolbar - 10
 
     &:not(.short)
       height: 100px
@@ -58,6 +60,7 @@
           font-size: 0.6rem
           text-transform: uppercase
           line-height: 26px
+          color: $ps-text-dark
 
           &.active
             border-bottom-color: $accent-color

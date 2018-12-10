@@ -2,7 +2,7 @@ import ColorSwatch from "../../shared/ColorSwatch";
 import Content from "../../Content";
 import React from "react";
 
-const About = ({character}) => {
+const Swatches = ({character}) => {
   const {
     swatches
   } = character;
@@ -15,4 +15,4 @@ const About = ({character}) => {
   )
 };
 
-export default About
+export default Swatches
