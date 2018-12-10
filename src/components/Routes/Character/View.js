@@ -1,13 +1,16 @@
 import React from 'react'
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import {Route, Switch} from "react-router";
 import Error from "../../shared/Error";
 import About from "./About";
 import Swatches from "./Swatches";
+import {setSearchQuery} from "../../../actions";
+import {connect} from "react-redux";
 
-const View = ({character, match}) => {
+const View = ({character, match, setSearchQuery}) => {
   const {
     name,
+    username,
     profile_image: {
       url: {
         medium: image_url
@@ -15,7 +18,7 @@ const View = ({character, match}) => {
     }
   } = character;
 
-  console.log(match);
+  setSearchQuery(name);
 
   if (!match) {
     return <Error message={"Match no"} />
@@ -25,10 +28,16 @@ const View = ({character, match}) => {
     <div className={'character-view'}>
       <div className={'header'}>
         <div className={'summary'}>
+          <button className='right plain'>
+            <i className='material-icons right'>star_outline</i>
+          </button>
           <h1>{ name }</h1>
           <div className={'attributes'}>
-            <div className={'attribute'}><span className="attr-name">By:</span> @MauAbata</div>
-            <div className={'attribute'}><span className="attr-name">Species:</span> Caracal / Snow Leopard</div>
+            <div className={'attribute'}>
+              <span className="attr-name">Created by </span>
+              <Link to={`/${username}`}>@{username}</Link>
+            </div>
+            {/*<div className={'attribute'}><span className="attr-name">Species:</span> {species || "(Unknown)"}</div>*/}
           </div>
           <div className='tabs'>
             <NavLink to={`${match.url}`} className='tab' activeClassName='active' exact>About</NavLink>
@@ -54,4 +63,4 @@ const View = ({character, match}) => {
   )
 };
 
-export default View
+export default connect(null, {setSearchQuery})(View)

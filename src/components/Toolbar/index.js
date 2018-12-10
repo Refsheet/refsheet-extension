@@ -3,24 +3,36 @@ import Button from "./Button"
 import { Link } from 'react-router-dom'
 import Search from "./Search";
 import { history } from '../../utils/configureStore';
+import {connect} from "react-redux";
+import c from 'classnames';
 
-const Toolbar = () => {
-  const canGoBack = history.index > 0;
-  const canGoForward = history.index < history.length - 1;
-  console.log({history});
-
+const Toolbar = ({currentUser}) => {
   return(
-    <div className='toolbar'>
-      <Button onClick={e => history.goBack()} disabled={!canGoBack}>keyboard_arrow_left</Button>
-      <Button onClick={e => history.goForward()} disabled={!canGoForward}>keyboard_arrow_right</Button>
-      <Button onClick={e => window.location.reload()}>refresh</Button>
-      <Link to='/'><i className='material-icons'>home</i></Link>
+    <div className='toolbar flex'>
+      <div className='no-grow'>
+        <Button onClick={e => history.goBack()}>keyboard_arrow_left</Button>
+        <Link to='/'><i className='material-icons'>home</i></Link>
+      </div>
 
-      <div className='right'>
+      <div className='grow'>
         <Search />
+      </div>
+
+      <div className='right no-grow'>
+        <Link to='/favorites' disabled={!currentUser} className={c({disabled: !currentUser})}>
+          <i className='material-icons'>star</i>
+        </Link>
+
+        { currentUser
+        ? <Link to='/account'><i className='material-icons'>person</i></Link>
+        : <Link to='/login'><i className='material-icons'>person_outline</i></Link> }
       </div>
     </div>
   )
 };
 
-export default Toolbar;
+const mapStateToProps = (state) => ({
+  currentUser: state.currentUser
+});
+
+export default connect(mapStateToProps)(Toolbar);

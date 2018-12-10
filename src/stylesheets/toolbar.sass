@@ -7,37 +7,28 @@
   flex-shrink: 0
   flex-grow: 0
 
+  &.flex
+    display: flex
+    padding: 0.25rem 0
+
+    & > div
+      padding: 0 0.25rem
+
+    .no-grow
+      flex-grow: 0
+      flex-shrink: 0
+
+    .grow
+      flex-grow: 1
+
+      input
+        width: 100% !important
+
   a, input, select, button
     display: inline-block
-    padding: 0.25rem 0.35rem
-    border: 1px solid transparent
-    border-radius: 3px
-    transition: all 0.1s ease
-    cursor: pointer
-    vertical-align: middle
 
-    &:not(:disabled)
-      &:hover
-        border-color: $ps-border-light
-        background-color: $ps-background-dark
-
-    &:disabled
-      border-color: transparent !important
-      background-color: transparent !important
-      color: $ps-text-dark !important
-      cursor: not-allowed
-
-    i.material-icons
-      font-size: 1rem
-      line-height: 1rem
-      height: 1rem
-      vertical-align: middle
-      display: block
-
-  a, button
-    &:focus
-      outline: none
-      border-color: transparent
+  a
+    @extend button
 
   input
     background-color: $ps-background-color
@@ -46,15 +37,20 @@
   .input-container
     position: relative
     vertical-align: middle
+    display: inline-block
+    width: 100%
+
+    input
+      width: 100%
+
+    &:not(:last-child)
+      margin-right: 0.25rem
 
     &.with-icon
       input
         padding-left: 1.5rem
-        width: 100px
 
         &:focus
-          width: 150px
-
           & + label
             color: $accent-color
 
@@ -73,10 +69,11 @@
         display: block
         vertical-align: middle
 
-  .right
-    position: absolute
-    right: 0.25rem
-    top: 0.25rem
-    bottom: 0.25rem
-    background-color: inherit
-    padding-left: 0.25rem
+  &:not(.flex)
+    .right
+      position: absolute
+      right: 0.25rem
+      top: 0.25rem
+      bottom: 0.25rem
+      background-color: inherit
+      padding-left: 0.25rem

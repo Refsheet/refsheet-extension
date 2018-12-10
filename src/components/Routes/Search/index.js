@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import Error from "../../shared/Error";
 import View from "./View";
 import {Query} from "react-apollo";
+import Loading from "../../shared/Loading";
 
 const Search = ({setSearchQuery, match: {params}}) => {
   const query = decodeURIComponent(params.query);
@@ -14,7 +15,7 @@ const Search = ({setSearchQuery, match: {params}}) => {
   return (
     <Query query={SEARCH_QUERY} variables={{query}}>
       {({loading, error, data}) => {
-        if (loading) return <p>Loading...</p>;
+        if (loading) return <Loading />;
         if(error) return <Error {...error} />;
         return <View {...data.searchForCharacter} />
       }}
