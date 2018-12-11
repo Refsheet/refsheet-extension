@@ -4,22 +4,24 @@ class Photoshop extends Extension {
   constructor() {
     super();
 
-    if (window && window.parent && window.parent.CSInterface)
+    if (window && window.parent && window.parent.CSInterface) {
       this.cs = new window.parent.CSInterface();
-    else
+      this.ext = window.parent;
+    } else {
       throw new Error("Are you running inside the Photoshop extension?");
+    }
   }
 
   evalScript(func, ...args) {
-    const argString = args.map(JSON.stringify).join(", ");
+    const argString = args.map(i => JSON.stringify(i) || "undefined").join(", ");
     const evalString = `${func}(${argString})`;
 
     console.log("Eval: " + evalString);
     return new Promise((resolve, reject) => {
       const result = this.cs.evalScript(evalString, (returnValue) => {
-        const match = returnValue.match(/^ERROR:\s+(.*)/)
+        const match = returnValue.match(/^ERROR:/);
         if (match) {
-          reject(new Error(match[1]));
+          reject(new Error(returnValue.replace(/^ERROR:\s+/, '')));
         } else {
           resolve(returnValue);
         }
@@ -49,6 +51,22 @@ class Photoshop extends Extension {
 
     color = color.replace(/^#/, '');
     return this.evalScript('setBackgroundColor', color);
+  }
+
+  downloadFile(url) {
+    return new Promise((resolve, reject) => {
+      this.ext.downloadFile(url, null, resolve)
+    });
+  }
+
+  openFile(url) {
+    return this.downloadFile(url)
+      .then(file => this.evalScript("openFile", file))
+  }
+
+  placeFile(url, layerName) {
+    return this.downloadFile(url)
+      .then(file => this.evalScript("placeFile", file, layerName))
   }
 }
 

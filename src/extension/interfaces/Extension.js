@@ -7,6 +7,18 @@ class Extension {
     return this.noop()
   }
 
+  downloadFile(url) {
+    return this.noop()
+  }
+
+  openFile(url) {
+    return this.noop()
+  }
+
+  placeFile(url) {
+    return this.noop()
+  }
+
   // Private - ish
 
   error(error) {

@@ -2,9 +2,24 @@ import React from 'react'
 import {closeLightbox} from "../../actions";
 import {connect} from "react-redux";
 import Content from "../Content";
+import getExtension from '../../extension';
+import Button from "../Toolbar/Button";
 
 const Lightbox = ({open, image, closeLightbox}) => {
+  const ext = getExtension();
   if (!open) return null;
+
+  const placeFile = () => {
+    ext.placeFile(image.url.large, image.name)
+      .then(console.log)
+      .catch(console.error)
+  };
+
+  const openFile = () => {
+    ext.openFile(image.url.large)
+      .then(console.log)
+      .catch(console.error)
+  };
 
   return (
     <div className='lightbox'>
@@ -13,6 +28,9 @@ const Lightbox = ({open, image, closeLightbox}) => {
           <div className='text strong'>{ image.title || "Untitled" }</div>
         </div>
         <div className='no-grow'>
+          <Button onClick={e => placeFile()} title="Place File">add_to_queue</Button>
+          <Button onClick={e => openFile()} title="Download & Open">cloud_download</Button>
+          <div className='divider' />
           <button onClick={e => closeLightbox()}>
             <i className='material-icons'>close</i>
           </button>
