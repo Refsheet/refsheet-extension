@@ -68,6 +68,10 @@ class Photoshop extends Extension {
     return this.downloadFile(url)
       .then(file => this.evalScript("placeFile", file, layerName))
   }
+
+  className() {
+    return "ext-photoshop";
+  }
 }
 
 export default Photoshop

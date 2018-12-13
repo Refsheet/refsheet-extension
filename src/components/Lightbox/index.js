@@ -10,7 +10,7 @@ const Lightbox = ({open, image, closeLightbox}) => {
   if (!open) return null;
 
   const placeFile = () => {
-    ext.placeFile(image.url.large, image.name)
+    ext.placeFile(image.url.large, image.title)
       .then(console.log)
       .catch(console.error)
   };
@@ -25,7 +25,7 @@ const Lightbox = ({open, image, closeLightbox}) => {
     <div className='lightbox'>
       <div className='toolbar flex'>
         <div className='grow'>
-          <div className='text strong'>{ image.title || "Untitled" }</div>
+          <div className='text strong' title={image.title}>{ image.title || "Untitled" }</div>
         </div>
         <div className='no-grow'>
           <Button onClick={e => placeFile()} title="Place File">add_to_queue</Button>

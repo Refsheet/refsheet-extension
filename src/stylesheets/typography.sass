@@ -1,12 +1,24 @@
 code
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
 
+html
+  line-height: 1.5
+  font-family: "Roboto", sans-serif
+  font-weight: normal
+  color: $ps-text-color
+  -webkit-font-smoothing: initial
+  -moz-osx-font-smoothing: grayscale
+  font-size: 14px
+
+  &.ext-photoshop
+    font-size: 12px
+
 a
   color: $ps-link-color
   text-decoration: none
 
 p
-  line-height: 1rem
+  margin: 0 0 0.75rem
 
 h1, h2, h3
   font-family: Roboto, sans-serif
@@ -16,6 +28,15 @@ h1, h2, h3
   &.error
     color: #ffcccc
     opacity: 1.0 !important
+
+h1
+  font-size: 1.5rem
+
+h2
+  font-size: 1.25rem
+
+h3
+  font-size: 1.1rem
 
 .right
   float: right

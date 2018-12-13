@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './stylesheets/index.sass';
 import App from './components/App';
 import * as serviceWorker from './utils/serviceWorker';
+import './utils/configureSentry';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

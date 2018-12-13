@@ -4,7 +4,9 @@ input, select, textarea, button
   color: inherit
   box-shadow: none !important
   outline-color: transparent
-  padding: 0.25rem 0.35rem
+  padding: 0.5rem 0.5rem
+  line-height: 1rem
+  height: 2rem
   border: 1px solid transparent
   border-radius: 3px
   transition: all 0.1s ease
@@ -15,10 +17,13 @@ input, select, textarea, button
     border-color: $accent-color
 
   i.material-icons
-    font-size: 1rem
-    line-height: 1rem
+    font-size: 1.25rem
+    line-height: 1.25rem
     height: 1rem
+    width: 1.25rem
     vertical-align: middle
+    position: relative
+    top: -0.2rem
     display: block
 
   &:not(:disabled):not(.disabled)
@@ -33,12 +38,43 @@ input, select, textarea, button
     cursor: initial
     pointer-events: none
 
-  i.material-icons
-    font-size: 1rem
-    line-height: 1rem
-    height: 1rem
-    vertical-align: middle
+.input-container
+  position: relative
+  vertical-align: middle
+  display: inline-block
+  width: 100%
+
+  input
+    width: 100%
+
+  &:not(:last-child)
+    margin-right: 0.25rem
+
+  &.with-icon
+    input
+      padding-left: 2.5rem
+
+      &:focus
+        & + label
+          color: $accent-color
+
+  label
+    position: absolute
+    left: 0
+    top: 0
+    bottom: 0
     display: block
+    padding: 0
+    width: 2.5rem
+
+    i.material-icons
+      font-size: 1.25rem
+      line-height: 2rem
+      height: 2rem
+      width: 2rem
+      text-align: center
+      vertical-align: middle
+      display: block
 
 a, button
   cursor: pointer

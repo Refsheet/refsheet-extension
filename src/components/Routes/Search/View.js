@@ -7,7 +7,7 @@ const View = ({total_pages, current_page, total_entries, count, characters}) => 
     <div className='character-view'>
       <div className='header short'>
         <div className='summary'>
-          <div className='right'>
+          <div className='right meta'>
             Page {current_page} of {total_pages}<br/>
             {total_entries} results
           </div>

@@ -19,6 +19,10 @@ class Extension {
     return this.noop()
   }
 
+  className() {
+    return "ext-none";
+  }
+
   // Private - ish
 
   error(error) {

@@ -3,69 +3,6 @@
   flex-direction: column
 
   .header
-    display: flex
-    flex-shrink: 0
-    background-color: $ps-background-dark
-    box-shadow: $box-shadow-1
-    position: relative
-    z-index: $z-toolbar - 10
-
-    &:not(.short)
-      height: 100px
-
-    div.right
-      float: right
-      text-align: right
-      color: $ps-text-dark
-      font-size: 0.6rem
-      line-height: 12.5px
-      vertical-align: middle
-
-      i.material-icons, &.material-icons
-        font-size: 1rem
-
-    .summary
-      flex-grow: 1
-      padding: 0.5rem
-
-      h1
-        margin: 0 0 2px 0
-        padding: 0
-        font-size: 1.1rem
-        line-height: 25px
-        height: 25px
-        vertical-align: text-top
-
-      .attributes
-        height: 30px
-        line-height: 15px
-        margin-bottom: 8px
-
-        .attribute
-          height: 15px
-
-        .attr-name
-          color: $ps-text-dark
-          font-size: 0.6rem
-          text-transform: uppercase
-
-      .tabs
-        margin: 0 0 -5px -0.5rem
-        height: 30px
-
-        .tab
-          padding: 0 0.5rem
-          display: inline-block
-          border-bottom: 1px solid transparent
-          font-size: 0.6rem
-          text-transform: uppercase
-          line-height: 26px
-          color: $ps-text-dark
-
-          &.active
-            border-bottom-color: $accent-color
-            color: $accent-color
-
     .profile-image
       flex-shrink: 0
       position: relative

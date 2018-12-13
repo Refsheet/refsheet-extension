@@ -1,0 +1,67 @@
+.header
+  display: flex
+  flex-shrink: 0
+  background-color: $ps-background-dark
+  box-shadow: $box-shadow-1
+  position: relative
+  z-index: $z-toolbar - 10
+
+  &:not(.short)
+    height: 8rem
+
+  div.right.meta
+    text-align: right
+    margin: -0.25rem 0
+    color: $ps-text-dark
+    font-size: 0.8rem
+    line-height: 1rem
+    vertical-align: middle
+
+    i.material-icons, &.material-icons
+      font-size: 1rem
+
+  .summary
+    flex-grow: 1
+    padding: 0.75rem
+
+    h1
+      margin: 0 0 0.25rem 0
+      padding: 0
+      font-size: 1.5rem
+      line-height: 1.5rem
+      height: 1.5rem
+      vertical-align: text-top
+
+      &:last-child
+        margin-bottom: 0
+
+    .attributes
+      display: table
+      height: 3rem
+      line-height: 1.5rem
+      margin-bottom: 0.5rem
+
+      .attribute
+        display: table-row
+
+      .attr-name
+        color: $ps-text-dark
+        display: table-cell
+        padding-right: 1rem
+
+    .tabs
+      margin: 0 -0.75rem -0.75rem -0.75rem
+      line-height: 2rem
+      height: 2rem
+
+      .tab
+        padding: 0 0.75rem
+        display: inline-block
+        border-bottom: 1px solid transparent
+        font-size: 0.8rem
+        text-transform: uppercase
+        color: $ps-text-dark
+
+        &.active
+          border-bottom-color: $accent-color
+          color: $accent-color

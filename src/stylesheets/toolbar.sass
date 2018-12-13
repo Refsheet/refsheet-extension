@@ -9,7 +9,10 @@
   z-index: $z-toolbar
 
   .text
-    padding: 0.25rem 0.25rem
+    padding: 0 0.25rem
+    line-height: 2rem
+    height: 2rem
+    overflow: hidden
 
     &.strong
       font-weight: bold
@@ -48,41 +51,6 @@
   input
     background-color: $ps-background-color
     border-color: $ps-border-light
-
-  .input-container
-    position: relative
-    vertical-align: middle
-    display: inline-block
-    width: 100%
-
-    input
-      width: 100%
-
-    &:not(:last-child)
-      margin-right: 0.25rem
-
-    &.with-icon
-      input
-        padding-left: 1.5rem
-
-        &:focus
-          & + label
-            color: $accent-color
-
-    label
-      position: absolute
-      left: 0
-      top: 1px
-      bottom: 0
-      display: block
-      padding: 0.25rem
-
-      i.material-icons
-        font-size: 1rem
-        height: auto
-        line-height: inherit
-        display: block
-        vertical-align: middle
 
   &:not(.flex)
     .right
