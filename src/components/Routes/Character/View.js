@@ -44,7 +44,7 @@ const View = ({character, match, setSearchQuery}) => {
             <div className={'attribute'}>
               <div className="attr-name">ref.st/ </div>
               <div className="attr-value">
-                <a rel='external' href={`https://ref.st/${shortcode}`} title='Open in Browser' target='_blank'>{shortcode}</a>
+                <a href={`https://ref.st/${shortcode}`} title='Open in Browser' target='_blank' rel="external noopener noreferrer">{shortcode}</a>
               </div>
             </div>
           </div>
