@@ -1,4 +1,15 @@
+import config from '../../config.json'
+
 class Extension {
+  static ANDROID = 'android';
+  static PHOTOSHOP = 'photoshop';
+
+  constructor() {
+    window.__EXTENSION = this;
+  }
+
+  // Document Things
+
   getOpenDocumentName() {
     return this.noop()
   }
@@ -19,8 +30,30 @@ class Extension {
     return this.noop()
   }
 
+  // Extension Metadata
+
+  getVersion() {}
+
+  // Static "Things"
+
+  id() {
+    return "none";
+  }
+
+  // Automagic
+
   className() {
-    return "ext-none";
+    return "ext-" + this.id();
+  }
+
+  latestVersion() {
+    return config.extensionVersions[this.id()];
+  }
+
+  updateRequired() {
+    const lv = this.latestVersion();
+    const cv = this.getVersion();
+    return lv !== cv;
   }
 
   // Private - ish

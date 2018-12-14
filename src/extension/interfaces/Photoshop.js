@@ -1,8 +1,9 @@
 import Extension from './Extension'
 
 class Photoshop extends Extension {
-  constructor() {
+  constructor(fake = false) {
     super();
+    if (fake) { return }
 
     if (window && window.parent && window.parent.CSInterface) {
       this.cs = new window.parent.CSInterface();
@@ -12,23 +13,8 @@ class Photoshop extends Extension {
     }
   }
 
-  evalScript(func, ...args) {
-    const argString = args.map(i => JSON.stringify(i) || "undefined").join(", ");
-    const evalString = `${func}(${argString})`;
-
-    console.log("Eval: " + evalString);
-    return new Promise((resolve, reject) => {
-      const result = this.cs.evalScript(evalString, (returnValue) => {
-        const match = returnValue.match(/^ERROR:/);
-        if (match) {
-          reject(new Error(returnValue.replace(/^ERROR:\s+/, '')));
-        } else {
-          resolve(returnValue);
-        }
-      });
-
-      if(result) reject(new Error(result))
-    })
+  id() {
+    return Extension.PHOTOSHOP;
   }
 
   getOpenDocumentName() {
@@ -69,8 +55,25 @@ class Photoshop extends Extension {
       .then(file => this.evalScript("placeFile", file, layerName))
   }
 
-  className() {
-    return "ext-photoshop";
+  // Private
+
+  evalScript(func, ...args) {
+    const argString = args.map(i => JSON.stringify(i) || "undefined").join(", ");
+    const evalString = `${func}(${argString})`;
+
+    console.log("Eval: " + evalString);
+    return new Promise((resolve, reject) => {
+      const result = this.cs.evalScript(evalString, (returnValue) => {
+        const match = returnValue.match(/^ERROR:/);
+        if (match) {
+          reject(new Error(returnValue.replace(/^ERROR:\s+/, '')));
+        } else {
+          resolve(returnValue);
+        }
+      });
+
+      if(result) reject(new Error(result))
+    })
   }
 }
 
