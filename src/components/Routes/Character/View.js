@@ -35,8 +35,16 @@ const View = ({character, match, setSearchQuery}) => {
           <h1>{ name }</h1>
           <div className={'attributes'}>
             <div className={'attribute'}>
-              <span className="attr-name">Created by </span>
-              <Link to={`/${username}`}>@{username}</Link>
+              <div className="attr-name">Created by </div>
+              <div className="attr-value">
+                <Link to={`/${username}`}>@{username}</Link>
+              </div>
+            </div>
+            <div className={'attribute'}>
+              <div className="attr-name">Created by </div>
+              <div className="attr-value">
+                <Link to={`/${username}`}>@{username}</Link>
+              </div>
             </div>
             {/*<div className={'attribute'}><span className="attr-name">Species:</span> {species || "(Unknown)"}</div>*/}
           </div>

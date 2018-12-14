@@ -11,6 +11,12 @@ input, select, textarea, button
   border-radius: 3px
   transition: all 0.1s ease
 
+  html:not(.ext-photoshop) &
+    padding-top: 0.75rem
+    padding-bottom: 0.75rem
+    height: 2.5rem
+    line-height: 3rem
+
   &:focus
     box-shadow: none
     outline-color: $accent-color
@@ -29,7 +35,7 @@ input, select, textarea, button
   &:not(:disabled):not(.disabled)
     &:hover
       border-color: $ps-border-light
-      background-color: $ps-background-dark
+      //background-color: $ps-background-dark
 
   &:disabled, &.disabled
     border-color: transparent !important
@@ -46,6 +52,12 @@ input, select, textarea, button
 
   input
     width: 100%
+
+  html:not(.ext-photoshop) &
+    label i.material-icons
+      height: 2.5rem
+      line-height: 2.5rem
+      padding: 0
 
   &:not(:last-child)
     margin-right: 0.25rem
