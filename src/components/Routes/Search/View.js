@@ -11,7 +11,7 @@ const View = ({total_pages, current_page, total_entries, count, characters}) => 
             Page {current_page} of {total_pages}<br/>
             {total_entries} results
           </div>
-          <h1>Search results:</h1>
+          <h1>Search Results</h1>
         </div>
       </div>
 

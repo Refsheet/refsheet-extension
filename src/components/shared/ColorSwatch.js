@@ -37,7 +37,10 @@ const ColorSwatch = ({color, style, name}) => {
       onContextMenu={handleRightClick}
       title={`${color} - ${name}`}
     >
-      { name && <div className='title'>{name}</div> }
+      <div className='title'>
+        {name}
+        <span className='color'>{ color }</span>
+      </div>
     </div>
   )
 };

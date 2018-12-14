@@ -4,6 +4,7 @@ import {Query} from "react-apollo";
 import gql from 'graphql-tag';
 import Error from "../../shared/Error";
 import View from "./View";
+import Loading from "../../shared/Loading";
 
 const Character = ({match}) => {
   const { params } = match;
@@ -16,7 +17,7 @@ const Character = ({match}) => {
   return (
     <Query query={GET_CHARACTER} variables={{username, character}}>
       {({loading, error, data}) => {
-        if (loading) return <p>Loading...</p>;
+        if (loading) return <Loading />;
         if(error) return <Error {...error} />;
         return <View character={data.getCharacterByUrl} match={match} />
       }}

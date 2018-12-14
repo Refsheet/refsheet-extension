@@ -7,16 +7,18 @@ html.ext-android
     background-color: $site-toolbar-color
     border-bottom-color: $site-border-color
 
-  nav.toolbar
+  nav.toolbar,
+  .color-swatch
     @extend .z-depth-1
+    border-color: transparent
 
-  input
+  input, .color-swatch .title
     background-color: $site-background-input
     border-color: $site-border-color
 
-  .header
-    background-color: $site-background-dark
-
-    .profile-image
-      &:before
-        background-color: $site-background-dark
+  .character-card,
+  .lightbox,
+  .header,
+  .profile-image:before,
+  .color-swatch .title
+    background-color: $site-background-dark !important
