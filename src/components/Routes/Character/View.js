@@ -40,12 +40,12 @@ const View = ({character, match, setSearchQuery}) => {
                 <Link to={`/${username}`}>@{username}</Link>
               </div>
             </div>
-            <div className={'attribute'}>
-              <div className="attr-name">Created by </div>
-              <div className="attr-value">
-                <Link to={`/${username}`}>@{username}</Link>
-              </div>
-            </div>
+            {/*<div className={'attribute'}>*/}
+              {/*<div className="attr-name">Created by </div>*/}
+              {/*<div className="attr-value">*/}
+                {/*<Link to={`/${username}`}>@{username}</Link>*/}
+              {/*</div>*/}
+            {/*</div>*/}
             {/*<div className={'attribute'}><span className="attr-name">Species:</span> {species || "(Unknown)"}</div>*/}
           </div>
           <div className='tabs'>
