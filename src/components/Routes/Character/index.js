@@ -32,6 +32,7 @@ const GET_CHARACTER = gql`
       special_notes_html
       slug
       username
+      shortcode
       
       swatches {
         id

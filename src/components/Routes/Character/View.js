@@ -12,6 +12,7 @@ const View = ({character, match, setSearchQuery}) => {
   const {
     name,
     username,
+    shortcode,
     profile_image: {
       url: {
         medium: image_url
@@ -40,13 +41,12 @@ const View = ({character, match, setSearchQuery}) => {
                 <Link to={`/${username}`}>@{username}</Link>
               </div>
             </div>
-            {/*<div className={'attribute'}>*/}
-              {/*<div className="attr-name">Created by </div>*/}
-              {/*<div className="attr-value">*/}
-                {/*<Link to={`/${username}`}>@{username}</Link>*/}
-              {/*</div>*/}
-            {/*</div>*/}
-            {/*<div className={'attribute'}><span className="attr-name">Species:</span> {species || "(Unknown)"}</div>*/}
+            <div className={'attribute'}>
+              <div className="attr-name">ref.st/ </div>
+              <div className="attr-value">
+                <a rel='external' href={`https://ref.st/${shortcode}`} title='Open in Browser' target='_blank'>{shortcode}</a>
+              </div>
+            </div>
           </div>
           <div className='tabs'>
             <NavLink to={`${match.url}`} className='tab' activeClassName='active' exact>About</NavLink>
