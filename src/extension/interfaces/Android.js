@@ -12,6 +12,18 @@ class Android extends Extension {
     }
   }
 
+  readConfig() {
+    const configJson = this.app.readConfig();
+    const config = JSON.parse(configJson);
+    return Promise.resolve(config);
+  }
+
+  writeConfig(config) {
+    const configJson = JSON.stringify(config);
+    this.app.writeConfig(configJson);
+    return Promise.resolve();
+  }
+
   getVersion() {
     this.app.getVersion()
   }

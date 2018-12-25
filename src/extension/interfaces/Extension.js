@@ -30,6 +30,14 @@ class Extension {
     return this.noop()
   }
 
+  readConfig() {
+    return this.noop()
+  }
+
+  writeConfig(config) {
+    return this.noop()
+  }
+
   // Extension Metadata
 
   getVersion() {}
