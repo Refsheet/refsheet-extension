@@ -1,13 +1,14 @@
 import {Link} from "react-router-dom";
 import React from "react";
+import {withNamespaces} from "react-i18next";
 
-const CharacterCard = ({character}) => (
+const CharacterCard = ({character, t}) => (
   <Link
     to={`/${character.username}/${character.slug}`}
     className='character-card'
   >
     <div className='name'>{ character.name }</div>
-    <div className='user'>By: @{ character.username }</div>
+    <div className='user'>{t('character.owner_label', "Owner:")} @{ character.username }</div>
     <div className='shortcode'>ref.st/{ character.shortcode }</div>
     <div className='image'>
       <img alt={ character.name } src={ character.profile_image.url.thumbnail } />
@@ -15,4 +16,6 @@ const CharacterCard = ({character}) => (
   </Link>
 );
 
-export default CharacterCard
+const translated = withNamespaces('common')(CharacterCard);
+
+export default translated

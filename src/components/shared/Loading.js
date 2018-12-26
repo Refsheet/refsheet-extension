@@ -1,14 +1,17 @@
 import React from 'react';
 import Content from "../Content";
 import Spinner from "./Spinner";
+import {withNamespaces} from "react-i18next";
 
-const Loading = () => {
+const Loading = ({t}) => {
   return (
     <Content relax>
-      <h1 className={'loading'}>Loading</h1>
+      <h1 className={'loading'}>{t('status.loading', 'Loading...')}</h1>
       <Spinner />
     </Content>
   )
 };
 
-export default Loading
+const translated = withNamespaces('common')(Loading);
+
+export default translated

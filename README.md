@@ -42,3 +42,52 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Translation
+
+This app uses `i18next` for translation, and [locize.io](https://locize.io) for managing translation keys.
+When developing, please avoid the use of any hardcoded strings. Instead, pick a reasonable key, and use the
+`t` method as follows:
+
+```jsx harmony
+<h1>{t('messages.hello', 'Hello, world!')}</h1>
+```
+
+You'll then need to export a `translated` version of your component, which provides `t` as a prop:
+
+```javascript
+const translated = withNamespaces('common')(MyComponent);
+export default translated;
+```
+
+Common convention would expect `translated` to be created after `connected`.
+
+### Translation Keys
+
+In general we should go two levels deep in our keys. The first level is a general group, which might
+correspond with the current view or a global value. The second is arbitrary but should be descriptive:
+
+```yaml
+actions: # anything actionable and app-global 
+  close: "Close"
+image:
+  download: "Download & Open"
+nav:
+  back: "Back"
+search:
+  title: "Search Results"
+status:
+  loading: "Loading..."
+```
+
+This is an example of our current structure at the time of writing this. The keys above correlate to:
+
+```
+actions.close
+image.download
+nav.back
+search.title
+status.loading
+```
+
+Etc. etc. etc. You get the idea?

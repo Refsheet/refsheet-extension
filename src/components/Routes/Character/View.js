@@ -7,8 +7,9 @@ import Swatches from "./Swatches";
 import {setSearchQuery} from "../../../actions";
 import {connect} from "react-redux";
 import Gallery from "./Gallery";
+import {withNamespaces} from "react-i18next";
 
-const View = ({character, match, setSearchQuery}) => {
+const View = ({character, match, setSearchQuery, t}) => {
   const {
     name,
     username,
@@ -30,13 +31,13 @@ const View = ({character, match, setSearchQuery}) => {
     <div className={'character-view'}>
       <div className={'header'}>
         <div className={'summary'}>
-          <button className='right plain'>
+          <button className='right plain' title={t('actions.add_favorite', 'Add Favorite')}>
             <i className='material-icons right'>star_outline</i>
           </button>
           <h1>{ name }</h1>
           <div className={'attributes'}>
             <div className={'attribute'}>
-              <div className="attr-name">Owner:</div>
+              <div className="attr-name">{t('character.owner_label', "Owner:")}</div>
               <div className="attr-value">
                 <Link to={`/${username}`}>@{username}</Link>
               </div>
@@ -44,14 +45,15 @@ const View = ({character, match, setSearchQuery}) => {
             <div className={'attribute'}>
               <div className="attr-name">ref.st/ </div>
               <div className="attr-value">
-                <a href={`https://ref.st/${shortcode}`} title='Open in Browser' target='_blank' rel="external noopener noreferrer">{shortcode}</a>
+                <a href={`https://ref.st/${shortcode}`} title={t('actions.open_in_browser', 'Open in Browser')}
+                   target='_blank' rel="external noopener noreferrer">{shortcode}</a>
               </div>
             </div>
           </div>
           <div className='tabs'>
-            <NavLink to={`${match.url}`} className='tab' activeClassName='active' exact>About</NavLink>
-            <NavLink to={`${match.url}/swatches`} className='tab' activeClassName='active'>Swatches</NavLink>
-            <NavLink to={`${match.url}/refs`} className='tab' activeClassName='active'>Gallery</NavLink>
+            <NavLink to={`${match.url}`} className='tab' activeClassName='active' exact>{t('character.nav.about', "About")}</NavLink>
+            <NavLink to={`${match.url}/swatches`} className='tab' activeClassName='active'>{t('character.nav.swatches', "Swatches")}</NavLink>
+            <NavLink to={`${match.url}/refs`} className='tab' activeClassName='active'>{t('character.nav.gallery', "Gallery")}</NavLink>
           </div>
         </div>
         <div className={'profile-image'}>
@@ -76,4 +78,7 @@ const View = ({character, match, setSearchQuery}) => {
   )
 };
 
-export default connect(null, {setSearchQuery})(View)
+const connected = connect(null, {setSearchQuery})(View);
+const translated = withNamespaces('common')(connected);
+
+export default translated;

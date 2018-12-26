@@ -1,8 +1,13 @@
 import Content from "../../Content";
 import React from "react";
 import Search from "../../Toolbar/Search";
+import {withNamespaces} from "react-i18next";
+import {setSearchQuery} from "../../../actions";
+import {connect} from "react-redux";
 
-const Home = () => {
+const Home = ({setSearchQuery}) => {
+  setSearchQuery("");
+
   return (
     <Content relax>
       <img
@@ -13,8 +18,6 @@ const Home = () => {
         height={100}
       />
 
-      <h1>Refsheet Artist</h1>
-
       <div className='toolbar' style={{backgroundColor: 'transparent', border: 'none'}}>
         <Search inputStyle={{width: '100%'}} />
       </div>
@@ -22,4 +25,7 @@ const Home = () => {
   )
 };
 
-export default Home;
+const connected = connect(null, {setSearchQuery})(Home);
+const translated = withNamespaces('common')(connected);
+
+export default translated;

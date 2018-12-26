@@ -1,30 +1,39 @@
 import React from 'react';
 import Content from "../../Content";
 import CharacterCard from "../../shared/CharacterCard";
+import {withNamespaces} from "react-i18next";
 
-const View = ({total_pages, current_page, total_entries, count, characters}) => {
+const View = ({total_pages, current_page, total_entries, count, characters, t}) => {
   return (
     <div className='character-view'>
       <div className='header short'>
         <div className='summary'>
           <div className='right meta'>
-            Page {current_page} of {total_pages}<br/>
-            {total_entries} results
+            {t('search.pages', {
+              defaultValue: "Page {{current_page}} of {{total_pages}}",
+              current_page,
+              total_pages
+            })}<br/>
+
+            {t('search.total', {
+              defaultValue: "{{count}} result",
+              count: total_entries
+            })}
           </div>
-          <h1>Search Results</h1>
+          <h1>{t('search.title', "Search Results")}</h1>
         </div>
       </div>
 
-      { renderResults(characters) }
+      { renderResults(characters, t) }
     </div>
   )
 };
 
-const renderResults = (characters) => {
+const renderResults = (characters, t) => {
   if (characters.length === 0)
     return (
       <Content relax>
-        <h1>No results :(</h1>
+        <h1>{t('search.no_results', 'No results :(')}</h1>
       </Content>
     );
 
@@ -35,4 +44,6 @@ const renderResults = (characters) => {
   )
 };
 
-export default View;
+const translated = withNamespaces('common')(View);
+
+export default translated;

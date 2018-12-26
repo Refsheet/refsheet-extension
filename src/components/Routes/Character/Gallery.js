@@ -4,8 +4,9 @@ import ContainerDimensions from 'react-container-dimensions'
 import JustifiedLayout from 'react-justified-layout'
 import {openLightbox} from "../../../actions";
 import {connect} from "react-redux";
+import {withNamespaces} from "react-i18next";
 
-const Gallery = ({character, openLightbox}) => {
+const Gallery = ({character, openLightbox, t}) => {
   const {
     images
   } = character;
@@ -33,7 +34,7 @@ const Gallery = ({character, openLightbox}) => {
       { image.nsfw
       ? <div className='nsfw'>
           <i className='material-icons'>remove_circle_outline</i>
-          <div>Click to Show NSFW</div>
+          <div>{t('content.nsfw_warn', "Click to Show NSFW")}</div>
         </div>
       : <img src={image.url.small} alt={image.caption} /> }
     </a>
@@ -54,7 +55,7 @@ const Gallery = ({character, openLightbox}) => {
             { images.map(renderImage)}
           </JustifiedLayout> }
       </ContainerDimensions>
-      { images.length === 0 && <p>Nothing here :(</p> }
+      { images.length === 0 && <p>{t('content.empty', "Nothing here :(")}</p> }
     </Content>
   )
 };
@@ -63,4 +64,7 @@ const mapDispatchToProps = {
   openLightbox
 };
 
-export default connect(null, mapDispatchToProps)(Gallery)
+const connected = connect(null, mapDispatchToProps)(Gallery);
+const translated = withNamespaces('common')(connected);
+
+export default translated;
