@@ -1,0 +1,16 @@
+$sizes: (xsmall: 0.25rem, small: 0.5rem, medium: 1rem, large: 1.5rem, xlarge: 2.5rem, xxlarge: 5rem, none: 0)
+
+@each $size, $value in $sizes
+  .margin--#{$size}
+    margin: $value !important
+
+  .padding--#{$size}
+    padding: $value !important
+
+@each $size, $value in $sizes
+  @each $side in top, left, bottom, right
+    .margin-#{$side}--#{$size}
+      margin-#{$side}: $value !important
+
+    .padding-#{$side}--#{$size}
+      padding-#{$side}: $value !important

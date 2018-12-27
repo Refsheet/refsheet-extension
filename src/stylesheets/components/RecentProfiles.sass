@@ -1,0 +1,41 @@
+.recent-profiles
+  $image-width: 60px
+  $bottom-pad: 1.5rem
+  $max-width: 360px
+  $disable-at-height: 500px
+
+  width: auto
+  margin-left: -0.5rem
+  margin-right: -0.5rem
+  margin-bottom: -$bottom-pad
+  overflow: hidden
+  max-width: 360px
+
+  .profile
+    display: block
+    float: left
+    text-align: center
+    width: (100% / 3)
+    padding: 0 0.5rem $bottom-pad 0.5rem
+
+    img
+      width: $image-width
+      height: $image-width
+      border-radius: 50%
+      object-fit: fill
+      display: block
+      margin: 0 auto
+
+    .profile-name
+      margin-top: 0.5rem
+      text-overflow: ellipsis
+      overflow: hidden
+      white-space: nowrap
+
+  &:after
+    content: ''
+    clear: both
+    display: block
+
+  @media only screen and (max-height: $disable-at-height)
+    display: none

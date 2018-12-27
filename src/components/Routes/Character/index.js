@@ -29,6 +29,7 @@ const GET_CHARACTER = gql`
   query getCharacterProfile($username: String!, $character: String!) {
     getCharacterByUrl(username: $username, slug: $character) {
       name
+      id
       special_notes_html
       slug
       username
@@ -43,6 +44,7 @@ const GET_CHARACTER = gql`
       
       profile_image {
         url {
+          thumbnail
           medium
         }
       }
