@@ -42,6 +42,6 @@ class Main extends Component {
   }
 }
 
-const connected = connect(null, {setSession})(Main);
+const connected = connect(null, {setSession}, null, {pure: false})(Main);
 
 export default connected;
