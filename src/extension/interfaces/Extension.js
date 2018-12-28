@@ -3,6 +3,7 @@ import config from '../../config.json'
 class Extension {
   static ANDROID = 'android';
   static PHOTOSHOP = 'photoshop';
+  static NONE = 'none';
 
   constructor() {
     window.__EXTENSION = this;
@@ -30,6 +31,8 @@ class Extension {
     return this.noop()
   }
 
+  // App Interaction
+
   readConfig() {
     return this.noop()
   }
@@ -37,6 +40,17 @@ class Extension {
   writeConfig(config) {
     return this.noop()
   }
+
+  openMenu() {
+    return this.noop()
+  }
+
+  closeMenu() {
+    return this.noop()
+  }
+
+  MenuSupported = false;
+  BackSupported = false;
 
   // Extension Metadata
 

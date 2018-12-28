@@ -37,6 +37,25 @@ class Android extends Extension {
     this.app.getVersion()
   }
 
+  openMenu() {
+    if (!this.app.openMenu)
+      return this.noop();
+
+    this.app.openMenu();
+    return Promise.resolve();
+  }
+
+  closeMenu() {
+    if (!this.app.closeMenu)
+      return this.noop();
+
+    this.app.closeMenu();
+    return Promise.resolve();
+  }
+
+  MenuSupported = true;
+  BackSupported = true;
+
   id() {
     return Extension.ANDROID;
   }

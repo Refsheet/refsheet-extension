@@ -6,13 +6,18 @@ import { history } from '../../utils/configureStore';
 import {connect} from "react-redux";
 import c from 'classnames';
 import {withNamespaces} from "react-i18next";
+import getExtension from "../../extension";
 
 const Toolbar = ({currentUser, t}) => {
+  const ext = getExtension();
+
   return(
     <div className='toolbar-container'>
       <nav className='toolbar flex'>
         <div className='no-grow'>
-          <Button onClick={e => history.goBack()} title={t('nav.back', 'Back')}>keyboard_arrow_left</Button>
+          { ext.MenuSupported && <Button onClick={e => ext.openMenu()} title={t('nav.manu', "Menu")}>menu</Button> }
+          {ext.BackSupported || <Button onClick={e => history.goBack()} title={t('nav.back', 'Back')}>keyboard_arrow_left</Button> }
+
           <Link to='/' title={t('nav.home', 'Home')}><i className='material-icons'>home</i></Link>
         </div>
 

@@ -1,4 +1,5 @@
 import Content from "../../Content";
+import Extension from "../../../extension/interfaces/Extension"
 import React from "react";
 import Search from "../../Toolbar/Search";
 import {Trans, withNamespaces} from "react-i18next";
@@ -26,7 +27,7 @@ const Home = ({setSearchQuery}) => {
 
       <RecentProfiles count={6} />
 
-      { getExtension().id() === "none" &&
+      { getExtension().id() === Extension.NONE &&
         <div className='error-well margin-top--large'>
           <Trans i18nKey={'errors.no_app'}>
             <div className='strong'>Are you running the app?</div>
