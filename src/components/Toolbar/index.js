@@ -35,7 +35,7 @@ const Toolbar = ({currentUser, t}) => {
               <i className='material-icons'>person</i>
           </Link>
 
-          : <Link to='/login' disabled={true} className={'disabled'} title={t('nav.login', 'Log In')}>
+          : <Link to='/login' title={t('nav.login', 'Log In')}>
               <i className='material-icons'>person_outline</i>
           </Link> }
         </div>
@@ -45,7 +45,8 @@ const Toolbar = ({currentUser, t}) => {
 };
 
 const mapStateToProps = (state) => ({
-  currentUser: state.currentUser
+  session: state.session,
+  currentUser: state.session.currentUser
 });
 
 const connected = connect(mapStateToProps)(Toolbar);

@@ -14,3 +14,9 @@ export function openLightbox(image) {
 export function closeLightbox() {
   return { type: CLOSE_LIGHTBOX }
 }
+
+export const SET_SESSION = 'SET_SESSION';
+
+export function setSession(session) {
+  return { type: SET_SESSION, session }
+}

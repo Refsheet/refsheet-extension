@@ -28,4 +28,5 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
+export { HOST };
 export default client;
