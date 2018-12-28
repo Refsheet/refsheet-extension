@@ -16,18 +16,26 @@ class Android extends Extension {
     if (!this.app.readConfig)
       return this.noop();
 
-    const configJson = this.app.readConfig();
-    const config = JSON.parse(configJson);
-    return Promise.resolve(config);
+    try {
+      const configJson = this.app.readConfig();
+      const config = JSON.parse(configJson);
+      return Promise.resolve(config);
+    } catch (e) {
+      return Promise.reject(e);
+    }
   }
 
   writeConfig(config) {
     if (!this.app.writeConfig)
       return this.noop();
 
-    const configJson = JSON.stringify(config);
-    this.app.writeConfig(configJson);
-    return Promise.resolve();
+    try {
+      const configJson = JSON.stringify(config);
+      this.app.writeConfig(configJson);
+      return Promise.resolve();
+    } catch (e) {
+      return Promise.reject(e);
+    }
   }
 
   getVersion() {
