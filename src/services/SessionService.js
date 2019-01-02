@@ -54,9 +54,27 @@ const SessionService = {
   },
 
   logout: function() {
-    return superagent
-      .delete(SESSION_PATH)
-      .set(csrf())
+    return new Promise((resolve, reject) => {
+      client
+        .mutate({
+          mutation: gql`
+            mutation {
+              destroySession {
+                ${SESSION_ARGS}
+              }
+            }
+          `
+        })
+        .then(data => {
+          if (data.data) {
+            resolve(data.data.destroySession);
+          } else {
+            console.warn({data});
+            resolve(null);
+          }
+        })
+        .catch(reject)
+    });
   },
 
   set: function(params) {
@@ -90,5 +108,8 @@ const SessionService = {
     })
   }
 };
+
+// HACK: Exposing this module for debugging raisins.
+window.__SESSION = SessionService;
 
 export default SessionService

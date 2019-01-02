@@ -30,6 +30,7 @@ class Login extends Component {
   }
 
   componentWillReceiveProps(newProps) {
+    console.log({newProps});
     if (newProps.currentUser) {
       this.props.push('/account');
     }
@@ -128,7 +129,11 @@ class Login extends Component {
   }
 }
 
-const connected = connect(null, {setSearchQuery, setSession, push})(Login);
+const connectStateToProps = (state) => ({
+  currentUser: state.session.currentUser
+});
+
+const connected = connect(connectStateToProps, {setSearchQuery, setSession, push})(Login);
 const translated = withNamespaces('common')(connected);
 
 export default translated;

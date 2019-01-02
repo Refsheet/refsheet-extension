@@ -3,8 +3,15 @@ import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { setContext } from 'apollo-link-context';
 
-const HOST = 'https://refsheet.net';
-// const HOST = 'http://dev.refsheet.net:5000';
+const HOST_PROD = 'https://refsheet.net';
+const HOST_DEV = 'http://dev1.refsheet.net:5000';
+let HOST;
+
+if (window.location.hash === "#dev") {
+  HOST = HOST_DEV;
+} else {
+  HOST = HOST_PROD;
+}
 
 const httpLink = createHttpLink({
   uri: `${HOST}/graphql`,
