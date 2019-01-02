@@ -8,7 +8,7 @@ import c from 'classnames';
 import {withNamespaces} from "react-i18next";
 import getExtension from "../../extension";
 
-const Toolbar = ({currentUser, t}) => {
+const Toolbar = ({currentUser, session, t}) => {
   const ext = getExtension();
 
   return(
@@ -31,7 +31,7 @@ const Toolbar = ({currentUser, t}) => {
           </Link>
 
           { currentUser
-          ? <Link to='/account' disabled={true} className={'disabled'} title={t('nav.account', 'Account')}>
+          ? <Link to='/account' title={t('nav.account', 'Account')}>
               <i className='material-icons'>person</i>
           </Link>
 

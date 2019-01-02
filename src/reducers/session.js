@@ -1,15 +1,11 @@
 import * as Actions from '../actions'
 
-const initialState = {
-  session: {}
-};
+const initialState = {};
 
 const session = (state = initialState, action) => {
   switch (action.type) {
     case Actions.SET_SESSION:
-      return Object.assign({}, state, {
-        session: action.session
-      });
+      return Object.assign({}, state, action.session);
 
     default:
       return state

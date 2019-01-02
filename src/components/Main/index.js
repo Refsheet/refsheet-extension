@@ -25,7 +25,6 @@ class Main extends Component {
     SessionService
       .get()
       .then((session) => {
-        console.log({session});
         this.props.setSession(session);
       })
       .catch(console.warn);

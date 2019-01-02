@@ -45,8 +45,7 @@ class Login extends Component {
       .login(variables.username, variables.password)
       .then((session) => {
         this.props.setSession(session);
-        // TODO: Redirect to /account when logging in.
-        this.props.push('/');
+        this.props.push('/account');
       })
       .catch((error) => {
         this.setState({error});
