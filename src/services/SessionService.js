@@ -24,7 +24,7 @@ const SESSION_ARGS = `
 `;
 
 const SessionService = {
-  login: function(username, password, remember = false) {
+  login: function(username, password, remember = true) {
     return new Promise((resolve, reject) => {
       client
         .mutate({

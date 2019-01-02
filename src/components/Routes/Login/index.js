@@ -29,6 +29,12 @@ class Login extends Component {
     this.props.setSearchQuery("");
   }
 
+  componentWillReceiveProps(newProps) {
+    if (newProps.currentUser) {
+      this.props.push('/account');
+    }
+  }
+
   handleInputChange(e) {
     e.preventDefault();
     const state = Object.assign({}, this.state.user);
@@ -45,7 +51,6 @@ class Login extends Component {
       .login(variables.username, variables.password)
       .then((session) => {
         this.props.setSession(session);
-        this.props.push('/account');
       })
       .catch((error) => {
         this.setState({error});
@@ -74,7 +79,8 @@ class Login extends Component {
         <h1 className='bright'>{t('nav.login', 'Log In')}</h1>
 
         { !this.state.loading &&
-          <form className='constrain-width' onSubmit={this.handleLogin}>
+          <form className='constrain-width' onSubmit={this.handleLogin}
+                noValidate>
             { this.state.error &&
               <div className='error-well margin-bottom--large'>
                 { this.getErrorMessage() }
@@ -83,7 +89,7 @@ class Login extends Component {
             <div className='input-container with-icon'>
               <input id='username'
                      name='username'
-                     type='text'
+                     type='email'
                      placeholder={t('session.username', 'Username')}
                      onChange={this.handleInputChange}
                      value={this.state.user.username}
