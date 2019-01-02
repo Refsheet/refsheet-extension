@@ -8,7 +8,7 @@ const HOST = 'https://refsheet.net';
 
 const httpLink = createHttpLink({
   uri: `${HOST}/graphql`,
-  credentials: 'same-origin'
+  credentials: 'include'
 });
 
 const csrf = document.getElementsByName('csrf-token')[0] || {};
